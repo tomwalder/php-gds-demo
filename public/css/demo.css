@@ -1,0 +1,55 @@
+h1,h2,h3,h4,h5,p,td,small,div {
+    font-weight: 200;
+}
+#gds-logo {
+    width: 42px;
+    margin-right: 5px;
+}
+.well h3 {
+    margin-top: 0px;
+}
+.post {
+    border-top: 1px solid #eee;
+    padding: 8px 0px 8px 0px;
+}
+.post:first-child {
+    border-top: none;
+    padding: 0px 0px 8px 0px;
+}
+.post em {
+    color: #999;
+}
+.post .message {
+    font-size: 18px;
+}
+.post .authored {
+    margin-top: 3px;
+    color: #339;
+}
+p {
+    font-size: 16px;
+}
+p a {
+    font-weight: 300;
+}
+@media (max-width: 992px) {
+    h1 {
+        font-size: 22px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    h3 {
+        font-size: 18px;
+    }
+}
+@media (min-width: 992px) {
+    body {
+        margin-top: 40px;
+    }
+    #gds-logo {
+        width: 70px;
+        margin-right: 8px;
+    }
+
+}

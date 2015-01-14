@@ -1,0 +1,15 @@
+{
+  "name": "tomwalder/php-gds-demo",
+  "type": "application",
+  "description": "Example php-gds implementation",
+  "keywords": ["php-gds", "datastore", "appengine"],
+  "homepage": "https://github.com/tomwalder/php-gds-demo",
+  "require": {
+    "tomwalder/php-gds": "1.*"
+  },
+  "minimum-stability": "dev",
+  "autoload": {
+    "classmap": []
+  },
+  "include-path": ["src/"]
+}
