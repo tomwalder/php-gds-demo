@@ -1,6 +1,6 @@
 application: php-gds-demo
-version: alpha
-runtime: php
+version: alpha2
+runtime: php55
 api_version: 1
 threadsafe: yes
 
