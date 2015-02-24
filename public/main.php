@@ -57,42 +57,47 @@
                 <div class="panel-body">
                     <?php
 
-                    // Includes
-                    require_once('../vendor/autoload.php');
-                    require_once('../config.php');
+                    try {
+                        // Includes
+                        require_once('../vendor/autoload.php');
+                        require_once('../config.php');
 
-                    // Client & Gateway
-                    $obj_google_client = GDS\Gateway::createGoogleClient('php-gds-demo', GDS_ACCOUNT, GDS_KEY_FILE);
-                    $obj_gateway = new GDS\Gateway($obj_google_client, 'php-gds-demo');
+                        // Client & Gateway
+                        $obj_google_client = GDS\Gateway::createGoogleClient('php-gds-demo', GDS_ACCOUNT, GDS_KEY_FILE);
+                        $obj_gateway = new GDS\Gateway($obj_google_client, 'php-gds-demo');
 
-                    // And the store - don't need to bother with schema here
-                    $obj_store = new GDS\Store($obj_gateway, 'Guestbook');
+                        // And the store - don't need to bother with schema here
+                        $obj_store = new GDS\Store($obj_gateway, 'Guestbook');
 
-                    // Grab the last posts
-                    $int_post_limit = 10;
-                    $arr_posts = $obj_store->query("SELECT * FROM Guestbook ORDER BY posted DESC")->fetchPage($int_post_limit);
+                        // Grab the last posts
+                        $int_post_limit = 10;
+                        $arr_posts = $obj_store->query("SELECT * FROM Guestbook ORDER BY posted DESC")->fetchPage($int_post_limit);
 
-                    // Show them
-                    foreach($arr_posts as $obj_post) {
+                        // Show them
+                        foreach ($arr_posts as $obj_post) {
 
-                        // Work out a nice datetime display string
-                        $int_posted_date = strtotime($obj_post->posted);
-                        $int_date_diff = time() - $int_posted_date;
-                        if($int_date_diff < 3600) {
-                            $str_date_display = round($int_date_diff / 60) . ' minutes ago';
-                        } else if ($int_date_diff < (3600 * 24)) {
-                            $str_date_display = round($int_date_diff / 3600) . ' hours ago';
-                        } else {
-                            $str_date_display = date('\a\t jS M Y, H:i', $int_posted_date);
+                            // Work out a nice datetime display string
+                            $int_posted_date = strtotime($obj_post->posted);
+                            $int_date_diff = time() - $int_posted_date;
+                            if ($int_date_diff < 3600) {
+                                $str_date_display = round($int_date_diff / 60) . ' minutes ago';
+                            } else if ($int_date_diff < (3600 * 24)) {
+                                $str_date_display = round($int_date_diff / 3600) . ' hours ago';
+                            } else {
+                                $str_date_display = date('\a\t jS M Y, H:i', $int_posted_date);
+                            }
+
+                            echo '<div class="post">';
+                            echo '<div class="message">', htmlspecialchars($obj_post->message), '</div>';
+                            echo '<div class="authored">By ', htmlspecialchars($obj_post->name), ' ', $str_date_display, '</div>';
+                            echo '</div>';
                         }
-
-                        echo '<div class="post">';
-                        echo '<div class="message">', htmlspecialchars($obj_post->message), '</div>';
-                        echo '<div class="authored">By ', htmlspecialchars($obj_post->name), ' ', $str_date_display, '</div>' ;
-                        echo '</div>';
+                        $int_posts = count($arr_posts);
+                        echo '<div class="post"><em>Showing last ', $int_posts, '</em></div>';
+                    } catch (\Exception $obj_ex) {
+                        syslog(LOG_ERR, $obj_ex->getMessage());
+                        echo '<em>Whoops, something went wrong!</em>';
                     }
-                    $int_posts = count($arr_posts);
-                    echo '<div class="post"><em>Showing last ', $int_posts, '</em></div>';
                     ?>
                 </div>
             </div>
