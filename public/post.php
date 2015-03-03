@@ -1,6 +1,8 @@
 <?php
 /**
  * Record an entry in the Guest Book
+ *
+ * @author Tom Walder <tom@docnet.nu>
  */
 require_once('../vendor/autoload.php');
 require_once('../config.php');
@@ -11,9 +13,9 @@ $obj_gateway = new GDS\Gateway($obj_google_client, 'php-gds-demo');
 
 // Define our schema - the posted datetime as an indexed field
 $obj_schema = (new GDS\Schema('Guestbook'))
-    ->addDatetime('posted', TRUE)
-    ->addString('name')
-    ->addString('message');
+    ->addDatetime('posted')
+    ->addString('name', FALSE)
+    ->addString('message', FALSE);
 
 // And the store
 $obj_store = new GDS\Store($obj_gateway, $obj_schema);

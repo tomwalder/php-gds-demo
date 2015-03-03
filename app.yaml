@@ -2,7 +2,7 @@ application: php-gds-demo
 version: alpha2
 runtime: php55
 api_version: 1
-threadsafe: yes
+threadsafe: true
 
 handlers:
 

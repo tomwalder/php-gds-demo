@@ -5,7 +5,7 @@
   "keywords": ["php-gds", "datastore", "appengine"],
   "homepage": "https://github.com/tomwalder/php-gds-demo",
   "require": {
-    "tomwalder/php-gds": "1.*"
+    "tomwalder/php-gds": "dev-master"
   },
   "minimum-stability": "dev",
   "autoload": {
