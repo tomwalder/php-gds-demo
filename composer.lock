@@ -1,23 +1,23 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4cb4e9f787276b1d541d25e708a585c7",
+    "hash": "824c07e737501e6ed5b9e648fb15eefa",
     "packages": [
         {
             "name": "google/apiclient",
-            "version": "dev-master",
+            "version": "1.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/google/google-api-php-client.git",
-                "reference": "9886fdada94948fbcd8e446e0f2e4745d75080b1"
+                "reference": "523430f21a92c54172099d12d0f31d40f3de67e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/google/google-api-php-client/zipball/9886fdada94948fbcd8e446e0f2e4745d75080b1",
-                "reference": "9886fdada94948fbcd8e446e0f2e4745d75080b1",
+                "url": "https://api.github.com/repos/google/google-api-php-client/zipball/523430f21a92c54172099d12d0f31d40f3de67e9",
+                "reference": "523430f21a92c54172099d12d0f31d40f3de67e9",
                 "shasum": ""
             },
             "require": {
@@ -46,24 +46,24 @@
             "keywords": [
                 "google"
             ],
-            "time": "2015-03-02 11:56:26"
+            "time": "2015-05-17 00:43:01"
         },
         {
             "name": "tomwalder/php-gds",
-            "version": "dev-master",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tomwalder/php-gds.git",
-                "reference": "df23d64cfe20a15da5cebf60ad1e8c350471d26b"
+                "reference": "6360f7e69fdf7a474de81f89284d456807a176f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tomwalder/php-gds/zipball/df23d64cfe20a15da5cebf60ad1e8c350471d26b",
-                "reference": "df23d64cfe20a15da5cebf60ad1e8c350471d26b",
+                "url": "https://api.github.com/repos/tomwalder/php-gds/zipball/6360f7e69fdf7a474de81f89284d456807a176f7",
+                "reference": "6360f7e69fdf7a474de81f89284d456807a176f7",
                 "shasum": ""
             },
             "require": {
-                "google/apiclient": "dev-master",
+                "google/apiclient": "1.1.3",
                 "php": ">=5.4.0"
             },
             "type": "library",
@@ -95,15 +95,13 @@
                 "google",
                 "nosql"
             ],
-            "time": "2015-03-02 23:42:21"
+            "time": "2015-05-18 11:50:17"
         }
     ],
     "packages-dev": [],
     "aliases": [],
-    "minimum-stability": "dev",
-    "stability-flags": {
-        "tomwalder/php-gds": 20
-    },
+    "minimum-stability": "stable",
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
