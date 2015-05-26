@@ -8,7 +8,8 @@
     "tomwalder/php-gds": "v1.2.0"
   },
   "autoload": {
-    "classmap": []
+    "classmap": ["src/"],
+    "psr-4": {"GDS\\": "src/GDS/"}
   },
   "include-path": ["src/"]
 }
