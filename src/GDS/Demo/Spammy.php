@@ -25,4 +25,20 @@ class Spammy
         }
         return FALSE;
     }
+
+    /**
+     * Check an array of strings for any that are spammy
+     *
+     * @param array $arr
+     * @return bool
+     */
+    public static function anyLookSpammy(array $arr)
+    {
+        foreach($arr as $str) {
+            if(self::looksSpammy($str)) {
+                return TRUE;
+            }
+        }
+        return FALSE;
+    }
 }
