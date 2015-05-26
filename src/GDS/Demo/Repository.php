@@ -72,8 +72,8 @@ class Repository
         $obj_store = $this->getStore();
         $obj_store->upsert($obj_store->createEntity([
             'posted' => date('Y-m-d H:i:s'),
-            'name' => substr($str_name, 0, 30),
-            'message' => substr($str_message, 0, 1000),
+            'name' => $str_name,
+            'message' => $str_message
         ]));
 
         // Update the cache
