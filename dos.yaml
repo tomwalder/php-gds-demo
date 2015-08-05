@@ -1,0 +1,7 @@
+blacklist:
+
+- subnet: 176.10.104.0/24
+  description: a range
+
+- subnet: 188.143.232.0/24
+  description: a range
