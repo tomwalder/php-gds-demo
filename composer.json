@@ -1,15 +1,25 @@
 {
-  "name": "tomwalder/php-gds-demo",
-  "type": "application",
-  "description": "Example php-gds implementation",
-  "keywords": ["php-gds", "datastore", "appengine"],
-  "homepage": "https://github.com/tomwalder/php-gds-demo",
-  "require": {
-    "tomwalder/php-gds": "v1.2.0"
-  },
-  "autoload": {
-    "classmap": ["src/"],
-    "psr-4": {"GDS\\": "src/GDS/"}
-  },
-  "include-path": ["src/"]
+    "name": "tomwalder/php-gds-demo",
+    "type": "application",
+    "description": "Example php-gds implementation",
+    "keywords": [
+        "php-gds",
+        "datastore",
+        "appengine"
+    ],
+    "homepage": "https://github.com/tomwalder/php-gds-demo",
+    "require": {
+        "tomwalder/php-gds": "v2.0.0"
+    },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ],
+        "psr-4": {
+            "GDS\\": "src/GDS/"
+        }
+    },
+    "include-path": [
+        "src/"
+    ]
 }
