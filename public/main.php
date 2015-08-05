@@ -44,11 +44,12 @@
                 <h3>Sign Guest Book</h3>
                 <form method="POST" action="/post.php">
                     <div class="form-group">
-                        <input type="text" class="form-control" name="guest-name" id="guest-name" placeholder="Name" maxlength="30">
+                        <input type="text" class="form-control" name="guest-name" id="guest-name" placeholder="Name" maxlength="30" />
                     </div>
                     <div class="form-group">
                         <textarea rows="3" class="form-control" name="guest-message" id="guest-message" placeholder="Message" maxlength="1000"></textarea>
                     </div>
+                    <input type="hidden" name="guest-as" id="guest-as" value="<?php echo base_convert(date('YmdH'), 10, 36); ?>" />
                     <button type="submit" class="btn btn-primary">Post</button>
                 </form>
             </div>
