@@ -5,6 +5,9 @@
  * @author Tom Walder
  */
 namespace GDS\Demo;
+use GDS\Schema;
+use GDS\Store;
+
 class Repository
 {
 
@@ -18,7 +21,7 @@ class Repository
     /**
      * GDS Store instance
      *
-     * @var \GDS\Store|null
+     * @var Store|null
      */
     private $obj_store = NULL;
 
@@ -66,14 +69,16 @@ class Repository
      *
      * @param $str_name
      * @param $str_message
+     * @param $str_ip
      */
-    public function createPost($str_name, $str_message)
+    public function createPost($str_name, $str_message, $str_ip)
     {
         $obj_store = $this->getStore();
         $obj_store->upsert($obj_store->createEntity([
             'posted' => date('Y-m-d H:i:s'),
             'name' => $str_name,
-            'message' => $str_message
+            'message' => $str_message,
+            'ip' => $str_ip
         ]));
 
         // Update the cache
@@ -83,14 +88,12 @@ class Repository
     /**
      * Configure and return a Store
      *
-     * @return \GDS\Store
+     * @return Store
      */
     private function getStore()
     {
         if(NULL === $this->obj_store) {
-            $obj_google_client = \GDS\Gateway::createGoogleClient('php-gds-demo', GDS_ACCOUNT, GDS_KEY_FILE);
-            $obj_gateway = new \GDS\Gateway($obj_google_client, 'php-gds-demo');
-            $this->obj_store = new \GDS\Store($obj_gateway, $this->makeSchema());
+            $this->obj_store = new Store($this->makeSchema());
         }
         return $this->obj_store;
     }
@@ -100,14 +103,16 @@ class Repository
      *
      * the posted datetime as an indexed field
      *
-     * @return \GDS\Schema
+     * @return Schema
      */
     private function makeSchema()
     {
-        return (new \GDS\Schema('Guestbook'))
+        return (new Schema('Guestbook'))
             ->addDatetime('posted')
             ->addString('name', FALSE)
-            ->addString('message', FALSE);
+            ->addString('message', FALSE)
+            ->addString('ip')
+        ;
     }
 
 }
